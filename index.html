@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Kak Naura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+   
+    <div class="hero">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="img/video.mp4" type="video/mp4">
+        </video>
+        <div class="isi">
+            <p id="typed-text">
+                Hi Naura, happy brithday ya, semoga yang disemogakan segera tercapai, semoga diberi kekuatan untuk menghadapi suatu masalah,semoga diberi umur yang bermanfaat,baik keluarga maupun masyarakat,semoga tergapai cita-cita indahmu
+            </p>
+        </div>
+        <button id="playButton" class="play-btn">
+            <i class="fas fa-play"></i> Play
+        </button>
+
+    <audio id="myAudio" controls>
+        <source src="hbd.mp3" type="audio/mpeg">
+       
+    </audio>
+        <nav>
+            <img src="img/logo.png" alt="logo" class="logo">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">SONGS</a></li>
+                <li><a href="#">NEARBY</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+        </nav>
+        
+        <div class="lyrics-container">
+            <p id="lyrics"></p>
+        </div>
+        <a href="https://lexaiko.github.io/nauraflowers/" class="button">tunggu selesai pls</a>
+        </div>
+        
+    </div>
+    <script>
+    const audio = document.getElementById("myAudio");
+const playButton = document.getElementById("playButton");
+const lyricsContainer = document.getElementById("lyrics");
+
+const lyrics = [
+    { word: "Lembaran", delay: 1000 },
+    { word: "foto", delay: 1000 },
+    { word: "hitam-putih", delay: 2000 },
+    { word: "Aku", delay: 1500 },
+    { word: "coba", delay: 500 },
+    { word: "ingat", delay: 500 },
+    { word: "lagi", delay: 500 },
+    { word: "warna", delay: 1000 },
+    { word: "bajumu", delay: 1000 },
+    { word: "kala", delay: 1500 },
+    { word: "itu", delay: 500 },
+    { word: "Kali", delay: 1500 },
+    { word: "pertama", delay: 1000 },
+    { word: "di", delay: 500 },
+    { word: "hidupku", delay: 1000 },
+    { word: "Manusia", delay: 1500 },
+    { word: "lain", delay: 500 },
+    { word: "memelukku", delay: 2000 },
+    { word: "  ", delay: 3000 },
+    { word: "Lembaran", delay: 1500 },
+    { word: "foto", delay: 1000 },
+    { word: "hitam-putih", delay: 2000 },
+    { word: "Aku", delay: 1500 },
+    { word: "coba", delay: 500 },
+    { word: "ingat", delay: 1000 },
+    { word: "lagi", delay: 500 },
+    { word: "wangi", delay: 800 },
+    { word: "rumah", delay: 500 },
+    { word: "di", delay: 500 },
+    { word: "sore", delay: 500 },
+    { word: "itu", delay: 500 },
+    { word: "Kue", delay: 1000 },
+    { word: "cokelat", delay: 1000 },
+    { word: "balon", delay: 1000 },
+    { word: "warna-warni", delay: 1500 },
+    { word: "Pesta", delay: 1000 },
+    { word: "hari", delay: 500 },
+    { word: "ulang", delay: 1000 },
+    { word: "tahunku", delay: 2000 },
+    { word: "Di", delay: 1500 },
+    { word: "mana", delay: 1000 },
+    { word: "pun", delay: 1000 },
+    { word: "kalian", delay: 2000 },
+    { word: "berada", delay: 2000 },
+    { word: "Kukirimkan", delay: 1800 },
+    { word: "terima", delay: 1500 },
+    { word: "kasih", delay: 1000},
+    { word: "Untuk", delay: 500 },
+    { word: "warna", delay: 800 },
+    { word: "dalam", delay: 800 },
+    { word: "hidupku", delay: 1000 },
+    { word: "dan", delay: 500 },
+    { word: "banyak", delay: 500 },
+    { word: "kenangan", delay: 1000 },
+    { word: "indah", delay: 3000 },
+    { word: "Kau", delay: 1000 },
+    { word: "melukis", delay: 1500 },
+    { word: "aku", delay: 2000 },
+];
+    
+    let index = 0;
+
+function showLyrics() {
+    if (index < lyrics.length) {
+        lyricsContainer.textContent = lyrics[index].word;
+        index++;
+        setTimeout(showLyrics, lyrics[index - 1].delay);
+    } else {
+        lyricsContainer.textContent = ""; // Menghapus lirik setelah selesai
+        playButton.style.display = "block"; // Menampilkan tombol Play setelah selesai
+    }
+}
+
+playButton.addEventListener("click", function() {
+    audio.play();
+    playButton.style.display = "none";
+    showLyrics();
+});
+
+audio.addEventListener("ended", function() {
+    lyricsContainer.textContent = ""; // Menghapus lirik setelah lagu selesai
+    window.location.href = 'https://lexaiko.github.io/nauraflowers/'; // Menampilkan tombol Play setelah selesai
+});</script>
+<script>
+   function typeWriter() {
+  const text = document.getElementById('typed-text').innerText;
+  let i = 0;
+  let charCount = 0;
+  document.getElementById('typed-text').innerText = '';
+
+  function addCharacter() {
+    if (i < text.length) {
+      const currentChar = text.charAt(i);
+      if (currentChar === ' ') {
+        document.getElementById('typed-text').innerHTML += '&nbsp;'; // Gunakan &nbsp; untuk spasi
+      } else {
+        document.getElementById('typed-text').innerText += currentChar; // Tambahkan karakter
+        charCount++;
+      }
+
+      i++;
+
+      if (charCount === 24 && currentChar !== ' ') {
+        document.getElementById('typed-text').innerHTML += '<br>'; // Tambahkan <br> setelah 10 karakter yang bukan spasi
+     // Reset jumlah karakter
+      }
+      if (charCount === charaCount && currentChar !== ' ') {
+        document.getElementById('typed-text').innerHTML += '<br>'; // Tambahkan <br> setelah 10 karakter yang bukan spasi
+     // Reset jumlah karakter
+      }
+      if (charCount === charaaCount && currentChar !== ' ') {
+        document.getElementById('typed-text').innerHTML += '<br>'; // Tambahkan <br> setelah 10 karakter yang bukan spasi
+     // Reset jumlah karakter
+      }
+      if (charCount === 108 && charaaCount == 80) {
+        // Lakukan sesuatu jika kondisi terpenuhi
+        document.getElementById('typed-text').innerHTML += '<br>';
+      }
+      if (charCount === 139 && charaaCount == 80) {
+        // Lakukan sesuatu jika kondisi terpenuhi
+        document.getElementById('typed-text').innerHTML += '<br>';
+      }
+      if (charCount === 168 && charaaCount == 80) {
+        // Lakukan sesuatu jika kondisi terpenuhi
+        document.getElementById('typed-text').innerHTML += '<br>';
+      }
+
+
+      setTimeout(addCharacter, 100); // Waktu antara penambahan karakter
+    }
+  }
+  addCharacter();
+}
+const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+function handleMediaQueryChange(e) {
+  if (e.matches) {
+    charaCount = 51;
+    anjay = 10;
+    charaaCount = 80;
+    
+  } else {
+    charaCount = 95;
+    charaaCount = 168;
+    
+  }
+}
+
+// Menerapkan listener untuk perubahan media query
+mediaQuery.addListener(handleMediaQueryChange);
+
+// Memeriksa status media query pada saat halaman dimuat
+handleMediaQueryChange(mediaQuery);
+
+// Panggil fungsi untuk memulai efek ketikan
+typeWriter();
+
+</script>
+</body>
+</html>
